@@ -1,10 +1,10 @@
 # N-anime
 Your anime recommendation website.
 ## Overview:
-At N-anime, we're tackling the challenge of providing anime enthusiasts with a seamless and enjoyable experience in discovering and exploring their favourite anime titles. Many anime fans face the frustration of navigating through scattered sources of information, making it difficult to find new shows or explore specific genres. N-anime aims to simplify this process by offering a user-friendly platform where users can effortlessly browse anime, access comprehensive information, and stay updated on the latest releases. Our goal is to enhance the overall anime-watching experience and cater to the diverse preferences of anime enthusiasts.
+At N-animez, we're tackling the challenge of providing anime enthusiasts with a seamless and enjoyable experience in discovering and exploring their favourite anime titles. Many anime fans face the frustration of navigating through scattered sources of information, making it difficult to find new shows or explore specific genres. N-animez aims to simplify this process by offering a user-friendly platform where users can effortlessly browse anime, access comprehensive information, and stay updated on the latest releases. Our goal is to enhance the overall anime-watching experience and cater to the diverse preferences of anime enthusiasts.
 
 ## Audience:
-The target audience for N-Anime comprises anime enthusiasts of all ages and backgrounds who are passionate about discovering and exploring new anime titles. This diverse group includes:
+The target audience for N-Animez comprises anime enthusiasts of all ages and backgrounds who are passionate about discovering and exploring new anime titles. This diverse group includes:
 
 -	Anime Newbies: Individuals who are new to the world of anime and are looking for guidance on where to start their anime-watching journey.
 

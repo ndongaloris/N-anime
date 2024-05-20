@@ -1,0 +1,126 @@
+:root{
+    --Background: #FFFFFF;
+    --background-color-nav: #F4EDE1; 
+    --text-color:#B3CBB9;
+    --Headers:#35524A;
+    --Buttons: #6FD5C3;
+    --Hover:#A8E6E0;
+    --Accent: #D8C3A5;
+    --header-font: "Nunito", sans-serif;;
+    --paragraph--font: "Poetsen One", sans-serif;;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: var(--text-color);
+}
+/* ***************************
+* --------- Header ----------
+***************************** */
+.websiteName{
+    display: flex;
+    flex-wrap: wrap;
+}
+#websiteLogo{
+    color: var(--text-color);
+    font-size: 44px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--header-font);
+}
+#main-header{
+    font-family: var(--paragraph--font);
+    background-color: var(--background-color-nav);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+/* ***************************
+*   --------- Browse ----------
+****************************** */
+#browse{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+}
+#browse label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+#browse input, #browse select{
+    width: 200px;
+    height: 35px;
+    border: 4px solid var(--text-color);
+    border-radius: 10px;
+    color: var(--text-color);
+}
+#browse input:focus{
+    outline: none;
+}
+
+
+/* ***************************
+*   recommendation section
+****************************** */
+.anime-card {
+    text-align: center;
+    width: 16rem;
+    height: 25rem;
+}
+
+.anime-card img{
+    width: 100%;
+    height: 80%;
+    border-radius:100px;
+}
+.recommendationSection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    /* margin: auto; */
+    gap: 10px;
+    padding: 30px;
+}
+#pageManipulation{
+    width: 351px;
+    margin: auto;
+    padding: 10px;
+}
+#pageManipulation button{
+    background-color: var(--Buttons);
+    padding: 5px;
+    margin: 0 10px 0 0;
+}
+#pageManipulation label{
+    /* display: flex;
+    gap: 10px; */
+    /* padding: 10px; */
+}
+#pageManipulation a{
+    border-radius: 10px;
+    background-color: var(--Buttons);
+    padding: 20px;
+    width: 10px;
+}
+#pageManipulation input{
+    width: 54px;
+    padding: 5px;   
+    margin: 0 0 0 5px;
+}
+
+
+/* ****************************
+* ---------- footer -----------
+****************************** */
+#main-footer{
+    font-family: var(--paragraph--font);
+    background-color: var(--background-color-nav);
+    padding: 20px;
+}
