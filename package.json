@@ -23,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/ndongaloris/N-anime/issues"
   },
-  "homepage": "https://github.com/ndongaloris/N-anime#readme"
+  "homepage": "https://github.com/ndongaloris/N-anime#readme",
+  "dependencies": {
+    "lint": "^0.8.19",
+    "vite": "^5.2.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "globals": "^15.3.0"
+  }
 }
