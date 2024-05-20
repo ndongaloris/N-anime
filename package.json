@@ -1,0 +1,27 @@
+{
+  "name": "N-anime",
+  "version": "1.0.0",
+  "description": "Your web anime recommendation",
+  "main": "main.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "lint": "eslint *.js src/**/*.js",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndongaloris/N-anime.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "Loris Jared Ndonga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndongaloris/N-anime/issues"
+  },
+  "homepage": "https://github.com/ndongaloris/N-anime#readme"
+}
