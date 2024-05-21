@@ -1,6 +1,5 @@
 function browseTemplate(){
-    return`<form action="" id="browse">
-            <label>Search<input type="text"></label>
+    return`<label>Search<input type="text"></label>
             <label for="">Genres<select name="genres" id="genres">
             <option >Any</option>
             <option value="">Award Winning</option>
@@ -40,9 +39,9 @@ function browseTemplate(){
             <option value="">Top 100</option>
             <option value="">Top 500</option>
             <option value="">Top 500+</option>
-        </select></label></form>`;
+        </select></label>`;
 }
 export function renderBrowseTemplate(){
-    const browseSection =document.querySelector("main");
+    const browseSection =document.querySelector("#browse");
     browseSection.insertAdjacentHTML("afterbegin", browseTemplate());
 }

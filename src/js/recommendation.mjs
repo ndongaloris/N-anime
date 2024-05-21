@@ -4,6 +4,7 @@ function recommendationTemplate(anime){
     return`<div class="anime-card">
                 <img src="${anime.image}" alt="">
                 <h3 class="title">${anime.title}</h3>
+                <h5 class="title">Status: ${anime.status}</h5>
             </div>;`
 }
 
@@ -15,19 +16,14 @@ function pageManipulation(){
 }
 
 
-export async function recommend(){
-    const recommendation = new externalServices("anime?page=1&size=24");
-    const result = await recommendation.getData();
-    const data = result['data'];
-    const main = document.querySelector("main");
-    let recommendationSection = document.createElement("section");
-    recommendationSection.classList = "recommendationSection";
+export async function recommend(link){
+    const recommendation = new externalServices(link);
+    const result =  await recommendation.getData();
+    const data = result.data;
+    let recommendationSection = document.querySelector(".recommendationSection");
     let htmlString = data.map(recommendationTemplate);
     
     recommendationSection.insertAdjacentHTML("afterbegin", htmlString.join(""));
     recommendationSection.insertAdjacentHTML("beforeend", pageManipulation());
-    
-    main.appendChild(recommendationSection)
-    
-    console.log(result);
+        
 }

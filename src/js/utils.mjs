@@ -1,5 +1,5 @@
 // Function to render HTML template into a parent element, optionally executing a callback function
-function renderWithTemplate(templateFn, parentElement, data, position = "afterbegin", callback){
+export function renderWithTemplate(templateFn, parentElement, data, position = "afterbegin", callback){
     // Insert the HTML template into the parent element at the specified position
     parentElement.insertAdjacentHTML(position, templateFn);
     // If a callback function is provided, execute it with the data parameter
