@@ -1,13 +1,50 @@
 import externalServices from "./externalServices.mjs";
 
+
+    // JavaScript to handle the sliding functionality
+let currentSlide = 0;
+
+
+
+function showSlide(slideIndex) {
+    const slides = document.getElementsByClassName("slide");
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    
+    if (slideIndex === 0  || slideIndex <= 0) {
+        slideIndex = 0;
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex + 1].style.display = "block";
+        slides[slideIndex + 2].style.display = "block"
+    }else{
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex + 1].style.display = "block";
+        if (slideIndex + 2 === slides.length){
+            slides[slideIndex - 1].style.display = "block";
+            slideIndex -= 2;
+        }else{
+            slides[slideIndex + 2].style.display = "block"
+        }
+    }
+    currentSlide = slideIndex;
+    return currentSlide;
+}
+
 function heroImageTemplate(anime){
-    return `<img class="slide" src="${anime.image}" alt="">
-           `;
+    return `<div href="" class="slide">
+                <img  src="${anime.image}" alt="">
+                <div class="card-info">
+                <h2>${anime.title}</h2>
+                <p>${anime.synopsis}</p>
+                </div>
+            </div>`;
 }
 
 function dotCirclesShow(){
-    return `<a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>`;
+    return `<a id="prevBtn" class="prev">❮</a>
+    <a id="nextBtn" class="next">❯</a>`;
 }
 
 function renderHeroImage(){
@@ -30,6 +67,16 @@ export async function  heroImage(link){
     imageContainer.insertAdjacentHTML("afterbegin", htmlString.join("")); 
     renderHeroImage();
 
-    const dotContainer = document.querySelector(".dot");
-    dotContainer.insertAdjacentHTML("afterbegin", dotCirclesShow());
+    imageContainer.insertAdjacentHTML("afterbegin", dotCirclesShow());
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    prevBtn.addEventListener("click", () =>{
+        showSlide(currentSlide - 1);
+    });
+    nextBtn.addEventListener("click", ()=>{
+        showSlide(currentSlide + 1);
+    });
+
+    showSlide(currentSlide);
 }
