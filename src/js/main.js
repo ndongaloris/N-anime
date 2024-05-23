@@ -1,6 +1,6 @@
 import { loadHeaderFooter } from "./utils";
 import { renderBrowseTemplate } from "./browse";
-import recommendation, {recommend} from "./recommendation.mjs";
+import recommendation from "./recommendation.mjs";
 import { heroImage } from "./hero";
 import Newsletter from "./Newsletter.mjs";
 
