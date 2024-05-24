@@ -107,13 +107,33 @@ h1, h2, h3, h4, h5, h6{
     gap: 10px;
     padding: 30px;
 }
+.pop-up{
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: .5rem .5rem .5rem .5rem;
+    transition: 0.8s;
+    visibility: hidden;
+}
+.container.pop-up.active{
+    visibility: visible;
+    transition: 0.8s;
+}
+
+
+
+
+
+
 #pageManipulation{
-    /* width: 351px; */
-    margin: auto;
+    width: fit-content;
+    margin: 0 auto;
     padding: 10px;
 }
 #pageManipulation button{
     background-color: var(--Buttons);
+    border:2px solid var(--Buttons);
     padding: 5px;
     margin: 0 10px 0 0;
 }
@@ -127,6 +147,7 @@ h1, h2, h3, h4, h5, h6{
     width: 54px;
     padding: 5px;   
     margin: 0 0 0 5px;
+    border:2px solid var(--Buttons)
 }
 
 #Newsletter{

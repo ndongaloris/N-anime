@@ -1,18 +1,42 @@
 import externalServices from "./externalServices.mjs";
 
 function recommendationTemplate(anime){
-    return`<div class="anime-card">
-                <img src="${anime.image}" alt="">
-                <h3 class="title">${anime.title}</h3>
-                <h5 class="title">Status: ${anime.status}</h5>
+    return`<div class="container">
+                <div class="anime-card">
+                    <img src="${anime.image}" alt="">
+                    <h3 class="title">${anime.title}</h3>
+                    <a href="#" id="moreInfo">More Info</a>
+                </div>
+                <div class="pop-up">
+                    <img src="${anime.image}" alt="">
+                    <h2 class="title">${anime.title}</h2>
+                    <p>Ranking: ${anime.ranking}</p>
+                    <p>Genre: ${anime.genres}</p>
+                    <p>Type: ${anime.type}</p>
+                    <p>Episodes: ${anime.episodes}</p>
+                    <p class="title">Status: ${anime.status}</p>
+                    <p>Synopsis: ${anime.synopsis}</p>
+                </div>
             </div>`
 }
 
-function pageManipulation(){
-    return `<div id="pageManipulation"><a id="prev">Prev</a>
-    <label for="">Page:<input type="number" value="1"main="1" max="100"> <button>Go</button>of 100</label>
-    
-    <a id="next">Next</a></div>`
+function pageManipulation(pageNumber){
+    return `<a href="#" id="prev">Prev</a>
+            <label for="">Page:<input type="number" Readonly value="${pageNumber}"main="1" max="100"> of 100</label>
+            
+            <a href="#" id="next">Next</a>
+                `
+}
+
+function popUpWindow(){
+    const moreInfo = document.querySelectorAll("#moreInfo");
+    moreInfo.forEach(button =>{
+        button.addEventListener("click", () =>{
+            document.querySelector("body").classList.toggle(".active");
+            document.querySelector("#pop-pup").classList.toggle("active")
+        })
+
+    })    
 }
 
 
@@ -21,6 +45,7 @@ export async function recommend(link){
     const result =  await recommendation.getData();
     const data = result.data;
     let recommendationSection = document.querySelector(".recommendationSection");
+    recommendationSection.innerHTML = "";
     let htmlString = data.map(recommendationTemplate);
     
     recommendationSection.insertAdjacentHTML("afterbegin", htmlString.join(""));
@@ -35,30 +60,35 @@ export default class recommendation{
         this. link;
     }
     init(){
-        let section = document.querySelector("section");
-        section.insertAdjacentHTML("afterbegin", pageManipulation());
         this.getLink();
-        recommend(this.link);
         this.nextPage();
         this.prevPage();
     }
     getLink(){
+        let section = document.querySelector("#pageManipulation");
         this.link = this.type + this.page + this.post;
+        recommend(this.link);
+        section.innerHTML = "";
+        section.insertAdjacentHTML("beforeend", pageManipulation(this.page));
+        this.nextPage();
+        this.prevPage();
     }
-    nextPage(){
+    prevPage(){
         const prev = document.querySelector("#prev")
         prev.addEventListener("click", () =>{
             if (this.page > 1){
                 this.page--;
             }
+            this.getLink();
         })
 
     }
-    prevPage(){
+    nextPage(){
         document.querySelector("#next").addEventListener("click", () =>{
-            if (this.page < 100){
+            if (this.page <= 100){
                 this.page++;
             }
+            this.getLink();
         })
     }
 }
