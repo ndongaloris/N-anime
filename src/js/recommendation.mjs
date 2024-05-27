@@ -21,10 +21,10 @@ function recommendationTemplate(anime){
 }
 
 function pageManipulation(pageNumber){
-    return `<a href="#" id="prev">Prev</a>
+    return `<a href="#recommendationSection" id="prev">Prev</a>
             <label for="">Page:<input type="number" Readonly value="${pageNumber}"main="1" max="100"> of 100</label>
             
-            <a href="#" id="next">Next</a>
+            <a href="#recommendationSection" id="next">Next</a>
                 `
 }
 
