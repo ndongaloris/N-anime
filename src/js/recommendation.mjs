@@ -76,17 +76,21 @@ export default class recommendation{
     constructor(type, page, post){
         this.type = type;
         this.page = page;
-        this. post = post;
-        this. link;
+        this.post = post;
+        this.link;
     }
     init(){
         this.getLink();
         this.nextPage();
         this.prevPage();
     }
-    getLink(){
+    getLink(link){
         let section = document.querySelector("#pageManipulation");
-        this.link = this.type + this.page + this.post;
+        if (link ===  null){
+            this.link = this.type + this.page + this.post;
+        }else{
+            this.link = link;
+        }
         recommend(this.link);
         section.innerHTML = "";
         section.insertAdjacentHTML("beforeend", pageManipulation(this.page));

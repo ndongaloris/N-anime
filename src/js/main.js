@@ -1,5 +1,5 @@
 import { loadHeaderFooter } from "./utils";
-import { renderBrowseTemplate } from "./browse";
+import { renderBrowseTemplate, search } from "./browse";
 import recommendation from "./recommendation.mjs";
 // import { heroImage } from "./hero";
 import Newsletter from "./Newsletter.mjs";
@@ -19,4 +19,6 @@ newsletter.init();
 const Recommendation = new recommendation("anime?page=",1, "&size=24");
 
 Recommendation.init()
+
+const searching = new search();
 

@@ -1,5 +1,9 @@
+import externalServices from "./externalServices.mjs";
+import { recommend } from "./recommendation.mjs";
+import recommendation from "./recommendation.mjs";
+
 function browseTemplate(){
-    return`<label>Search<input type="text"></label>
+    return`<label>Search<input type="text" id="search" name="search" placeholder="search"></label>
             <label for="">Genres<select name="genres" id="genres">
             <option >Any</option>
             <option value="">Award Winning</option>
@@ -44,4 +48,14 @@ function browseTemplate(){
 export function renderBrowseTemplate(){
     const browseSection =document.querySelector("#browse");
     browseSection.insertAdjacentHTML("afterbegin", browseTemplate());
+}
+
+export function search(){
+    const search = document.querySelector("#search").addEventListener("input", () =>{
+        const value = search.value; 
+        const postUrl = `anime?page=1&size=24&search=${value}`
+        const link = new externalServices(postUrl);
+        const searching = new recommendation();
+        searching.getLink(link);
+    })
 }
