@@ -86,7 +86,7 @@ export default class recommendation{
     }
     getLink(link){
         let section = document.querySelector("#pageManipulation");
-        if (link ===  null){
+        if (link ===  null || link === undefined){
             this.link = this.type + this.page + this.post;
         }else{
             this.link = link;
