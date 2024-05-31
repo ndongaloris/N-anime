@@ -73,10 +73,14 @@ function pageManipulation(pageNumber){
 }
 
 export default class recommendation{
-    constructor(type, page, post){
+    constructor(type, page, size=1, search="", genres="", sortBy="", sortOrd =""  ){
         this.type = type;
         this.page = page;
-        this.post = post;
+        this.size = size, 
+        this.search = search, 
+        this.genres = genres, 
+        this.sortBy = sortBy, 
+        this.sortOrd = sortOrd;
         this.link;
     }
     init(){
@@ -87,7 +91,13 @@ export default class recommendation{
     getLink(link){
         let section = document.querySelector("#pageManipulation");
         if (link ===  null || link === undefined){
-            this.link = this.type + this.page + this.post;
+            const parameters = [ this.page , this.size , this.search , this.genres , this.sortBy , this.sortOrd]
+            this.link = this.type;
+            parameters.forEach(element =>{
+                if (element !== null || element!== undefined){
+                    this.link += element
+                }
+            })
         }else{
             this.link = link;
         }

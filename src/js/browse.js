@@ -27,16 +27,17 @@ function browseTemplate(){
             <option value="">Hentai</option>
             <option value="">Action</option>
         </select></label>
-        <label>Sort Order<select name="" id="">
+
+        <label>Sort Order<select name="sortOrder" id="sortOrder">
             <option value="">Any</option>
-            <option value="asc">asc</option>
-            <option value="dsc">dsc</option>
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>
             
         </select></label>
-        <label>SOrt By <select name="" id="">
+        <label>Sort By <select name="sortBy" id="sortBy">
             <option value="">Any</option>
-            <option value="">Ranking</option>
-            <option value="">Title</option>
+            <option value="ranking">Ranking</option>
+            <option value="title">Title</option>
         </select></label>`;
 }
 export function renderBrowseTemplate(){
@@ -47,12 +48,29 @@ export function renderBrowseTemplate(){
 
 function search(){
     const search = document.querySelector("#searchInput");
+    let searching = new recommendation("anime?page=", 1, `&size=24`);
     search.addEventListener("input", (e) =>{
         e.preventDefault();
         const value = search.value; 
-        // const postUrl = `anime?page=1&size=24&search=${value}`
-        // const link = new externalServices(postUrl);
-        const searching = new recommendation("anime?page=", 1, `&size=24&search=${value}`);
-        searching.getLink();
+        searching = new recommendation("anime?page=", 1, `&size=24`,`&search=${value}`);
+
+        const genres = document.querySelector("#genres").addEventListener("change", (e) => {
+            e.preventDefault();
+            const genresValue = genres.value;
+            searching = new recommendation("anime?page=", 1, `&size=24`,`&search=${value}`, `&genres=${genresValue}`)
+            
+            const sortBy = document.querySelector("#sortBy").addEventListener("change", (e) => {
+                e.preventDefault();
+                const sortValue = sortBy.value;
+                searching = new recommendation("anime?page=", 1, `&size=24`,`&search=${value}`, `&genres=${genresValue}`, `&sortby=${sortValue}`)
+
+                const sortOrder = document.querySelector("#sortOrder").addEventListener("change", (e) => {
+                    e.preventDefault();
+                    const orderValue = sortOrder.value;
+                    searching = new recommendation("anime?page=", 1, `&size=24`, `&search=${value}`, `&genres=${genresValue}`, `&sortby=${sortValue}`, `&sortOrder=${orderValue}`)
+                })
+            })
+        })
     })
+    searching.getLink();
 }
