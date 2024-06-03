@@ -67,16 +67,20 @@ function recommendationTemplate(anime){
 
 function pageManipulation(pageNumber){
     return `<a href="#recommendationSection" id="prev">Prev</a>
-            <label for="">Page:<input type="number" Readonly value="${pageNumber}"main="1" max="100"> of 100</label>
+            <label for="">Page:<input type="number" Readonly value="${pageNumber}"main="1" max="100"></label>
             
             <a href="#recommendationSection" id="next">Next</a>`
 }
 
 export default class recommendation{
-    constructor(type, page, post){
+    constructor(type, page, size=1, search="", genres="", sortBy="", sortOrd =""  ){
         this.type = type;
         this.page = page;
-        this.post = post;
+        this.size = size, 
+        this.search = search, 
+        this.genres = genres, 
+        this.sortBy = sortBy, 
+        this.sortOrd = sortOrd;
         this.link;
     }
     init(){
@@ -84,18 +88,40 @@ export default class recommendation{
         this.nextPage();
         this.prevPage();
     }
-    getLink(link){
+    getLink(){
         let section = document.querySelector("#pageManipulation");
-        if (link ===  null || link === undefined){
-            this.link = this.type + this.page + this.post;
-        }else{
-            this.link = link;
-        }
+        const parameters = [ this.size , this.search , this.genres , this.sortBy , this.sortOrd]
+        this.link = this.type + this.page;
+        parameters.forEach(element =>{
+            if (element !== null || element!== undefined){
+                this.link += element
+            }
+        })
         recommend(this.link);
         section.innerHTML = "";
         section.insertAdjacentHTML("beforeend", pageManipulation(this.page));
         this.nextPage();
         this.prevPage();
+    }
+    getSize(size){
+        this.size = size;
+        this.getLink();
+    } 
+    getSearch(search){
+        this.search = search;
+        this.getLink();
+    }
+    getGenres(genres){
+        this.genres = genres;
+        this.getLink();
+    } 
+    getSortBy(sortBy){
+        this.sortBy = sortBy;
+        this.getLink();
+    } 
+    getSortOrd(sortOrd){
+        this.sortOrd = sortOrd;
+        this.getLink();
     }
     prevPage(){
         const prev = document.querySelector("#prev")
@@ -105,7 +131,6 @@ export default class recommendation{
             }
             this.getLink();
         })
-
     }
     nextPage(){
         document.querySelector("#next").addEventListener("click", () =>{
