@@ -1,7 +1,7 @@
 import { loadHeaderFooter } from "./utils";
-import { renderBrowseTemplate } from "./browse";
+import { renderBrowseTemplate } from "./browse.mjs";
 import recommendation from "./recommendation.mjs";
-// import { heroImage } from "./hero";
+import { heroImage } from "./hero.mjs";
 import Newsletter from "./Newsletter.mjs";
 
 loadHeaderFooter();
@@ -9,7 +9,7 @@ loadHeaderFooter();
 renderBrowseTemplate();
 
 
-// heroImage("anime?page=1&size=15&sortBy=ranking&sortOrder=asc");
+heroImage("anime?page=1&size=15&sortBy=ranking&sortOrder=asc");
 
 
 const newsletter = new Newsletter();
