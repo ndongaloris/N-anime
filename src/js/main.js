@@ -16,8 +16,8 @@ const newsletter = new Newsletter();
 
 newsletter.init();
 
-const Recommendation = new recommendation("anime?page=",1, "&size=24");
+// const Recommendation = new recommendation("anime?page=",1, "&size=24");
 
-Recommendation.init()
+// Recommendation.init()
 
 

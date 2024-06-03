@@ -86,6 +86,7 @@ h1, h2, h3, h4, h5, h6{
 *   recommendation section
 ****************************** */
 .anime-card {
+    position: relative;
     text-align: center;
     width: 16rem;
     height: 25rem;
@@ -213,6 +214,15 @@ h1, h2, h3, h4, h5, h6{
     border:double .5rem  var(--text-color);
     border-radius: 100%;
     padding: 10px;
+}
+
+
+/*  */
+
+#addWishlist{
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 

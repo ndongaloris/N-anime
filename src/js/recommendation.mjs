@@ -45,6 +45,7 @@ export function popUpWindow(){
 function recommendationTemplate(anime){
     return`<div class="container">
                 <div class="anime-card">
+                <a href="#" id="addWishlist"><i id="websiteLogo" class="fa-sharp fa-solid fa-star"></i></a>
                     <img src="${anime.image}" alt="">
                     <h3 class="title">${anime.title}</h3>
                     <a href="#" class="moreInfo">More Info</a>

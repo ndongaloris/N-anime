@@ -1,4 +1,3 @@
-import externalServices from "./externalServices.mjs";
 import recommendation from "./recommendation.mjs";
 
 function browseTemplate(){

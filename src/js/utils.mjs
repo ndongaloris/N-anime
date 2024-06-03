@@ -1,3 +1,11 @@
+export function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+  // save data to local storage
+export function setLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
 // Function to render HTML template into a parent element, optionally executing a callback function
 export function renderWithTemplate(templateFn, parentElement, data, position = "afterbegin", callback){
     // Insert the HTML template into the parent element at the specified position
