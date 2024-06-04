@@ -1,5 +1,5 @@
 import externalServices from "./externalServices.mjs";
-
+import record from "./record.mjs";
 
 export async function recommend(link){
     const recommendation = new externalServices(link);
@@ -12,6 +12,9 @@ export async function recommend(link){
     recommendationSection.insertAdjacentHTML("afterbegin", htmlString.join(""));
 
     popUpWindow();
+    const dataSource = new externalServices();
+    const Record = new record(dataSource);
+    Record.addToStorage();
     
 }
 
@@ -45,12 +48,13 @@ export function popUpWindow(){
 function recommendationTemplate(anime){
     return`<div class="container">
                 <div class="anime-card">
-                    <img src="${anime.image}" alt="">
+                <a href="#" id="addWishlist" data-id=${anime._id}><i id="websiteLogo" class="fa-sharp fa-regular fa-star"></i></a>
+                    <img src="${anime.image}" alt="${anime.title}">
                     <h3 class="title">${anime.title}</h3>
                     <a href="#" class="moreInfo">More Info</a>
                 </div>
                 <div class="pop-up">
-                    <img src="${anime.image}" alt="">
+                    <img src="${anime.image}" alt="${anime.title}">
                     <div class="windowInfo">
                         <h2 class="title">${anime.title}</h2>
                         <p>Ranking: ${anime.ranking}</p>
