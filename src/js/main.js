@@ -11,7 +11,7 @@ loadHeaderFooter();
 renderBrowseTemplate();
 
 
-// heroImage("anime?page=1&size=15&sortBy=ranking&sortOrder=asc");
+heroImage("anime?page=1&size=15&sortBy=ranking&sortOrder=asc");
 
 
 const newsletter = new Newsletter();
