@@ -1,5 +1,5 @@
 import { loadHeaderFooter } from "./utils";
-import wishingList from "./whishingList.mjs";
+import wishingList from "./record.mjs";
 
 
 loadHeaderFooter();
