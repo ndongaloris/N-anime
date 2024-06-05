@@ -270,7 +270,5 @@ tbody tr:nth-child(even){
     font-family: var(--header-font);
     background-color: var(--background-color-nav);
     padding: 20px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
 }
